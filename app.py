@@ -257,14 +257,6 @@ def show_main():
             prod_per_year = impact / adj_years
             eol_impact = (impact * eol_mod) / adj_years
 
-            st.markdown(f"""
-                <div style="margin-top: 15px; background-color: #e3f2fd; padding: 10px 15px;
-                            border-radius: 8px; font-weight: 500; color: #1d3557;">
-                    📊 Production: {prod_per_year:.2f} kg CO₂e/year &nbsp;&nbsp;&nbsp;
-                    ♻️ End-of-life: {eol_impact:.2f} kg CO₂e/year
-                </div>
-            """, unsafe_allow_html=True)
-
             confirm_key = f"confirm_{device_id}"
             if st.button("✅ Confirm", key=confirm_key):
                 st.session_state.device_expanders[device_id] = False
@@ -712,5 +704,6 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
 
 
